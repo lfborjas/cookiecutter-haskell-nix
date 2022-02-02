@@ -17,6 +17,7 @@ if __name__ == '__main__':
 
     if '{{ cookiecutter.is_webapp}}' != 'y':
       remove_file('nix/docker.nix')
+      remove_file('.github/workflows/heroku.yml')
       remove_dir('config')
 
     if '{{ cookiecutter.has_executable}}' != 'y':
