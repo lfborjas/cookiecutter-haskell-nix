@@ -6,6 +6,7 @@ on:
   pull_request:
     branches: [ main, rc ]
 
+{% raw -%}
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -38,3 +39,4 @@ jobs:
             ${{ runner.os }}-${{ matrix.ghc }}-
       - run: cabal v2-build $CONFIG
       - run: cabal v2-test $CONFIG
+{% endraw %}
