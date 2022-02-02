@@ -20,7 +20,7 @@ jobs:
         docker load < $(nix-build ./nix/docker.nix)
     - name: Push to container Registry
       env:
-        HEROKU_API_KEY: {% raw% }${{ secrets.HEROKU_API_KEY }}{% endraw %}
+        HEROKU_API_KEY: {% raw %}${{ secrets.HEROKU_API_KEY }}{% endraw %}
       run: |
         docker tag ecliptic-surf:latest registry.heroku.com/{{cookiecutter.project_slug}}/web
         docker push registry.heroku.com/{{cookiecutter.project_slug}}/web
