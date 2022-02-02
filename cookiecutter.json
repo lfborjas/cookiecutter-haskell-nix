@@ -1,0 +1,14 @@
+{
+  "author": "Luis Borjas Reyes",
+  "email": "hello@lfborjas.com",
+  "github_username": "lfborjas",
+  "project_name": "Haskell Boilerplate",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('.', '-') }}",
+  "project_module": "{{ cookiecutter.project_name.title().replace(' ', '').replace('-', '').replace('.', '') }}",
+  "project_short_description": "Haskell Project",
+  "is_lib": "n",
+  "is_webapp": "y",
+  "has_executable": "y",
+  "license": "GPLv3",
+  "is_open_source": "y"
+}
