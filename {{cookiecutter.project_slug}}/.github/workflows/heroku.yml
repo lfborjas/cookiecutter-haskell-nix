@@ -12,7 +12,7 @@ jobs:
         nix_path: nixpkgs=channel:nixos-21.05
     - name: Login to Heroku Container Registry
       env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        HEROKU_API_KEY: {% raw %}${{ secrets.HEROKU_API_KEY }}{% endraw %}
       run:
         heroku container:login
     - name: Build with nix and load into docker 
@@ -20,12 +20,12 @@ jobs:
         docker load < $(nix-build ./nix/docker.nix)
     - name: Push to container Registry
       env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        HEROKU_API_KEY: {% raw% }${{ secrets.HEROKU_API_KEY }}{% endraw %}
       run: |
         docker tag ecliptic-surf:latest registry.heroku.com/{{cookiecutter.project_slug}}/web
         docker push registry.heroku.com/{{cookiecutter.project_slug}}/web
     - name:  Release
       env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        HEROKU_API_KEY: {% raw %}${{ secrets.HEROKU_API_KEY }}{% endraw %}
       run:
         heroku container:release web -a {{cookiecutter.project_slug}}
