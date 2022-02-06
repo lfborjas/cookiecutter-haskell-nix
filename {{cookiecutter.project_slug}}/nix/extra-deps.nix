@@ -13,4 +13,8 @@ in (super: {
   {% if cookiecutter.is_webapp == 'y' -%}
   fused-effects  = dontCheck super.fused-effects;
   {% endif %}
+  optics = super.optics_0_4;
+  optics-th = super.optics-th_0_4;
+  optics-extra = super.optics-extra_0_4;
+  optics-core= super.optics-core_0_4;
 })
